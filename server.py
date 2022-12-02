@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import os
 
 app = Flask(__name__)
 
@@ -15,6 +16,8 @@ def search_location():
     """Get location input."""
 
     location = request.form.get('search')
+
+    key = os.environ['API_KEY']
 
     return render_template('weather.html')
 
