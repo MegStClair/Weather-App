@@ -33,46 +33,42 @@ def search_location():
 
     lat = data['lat']
     lon = data['lon']
-    
-    print(lat)
-    print(lon)
 
-    url_current = f'https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={key}'
+    url_forecast = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&units=imperial&exclude=hourly,minutely&appid={key}'
 
-    response_current = requests.get(url_current).json()
+    response_forecast = requests.get(url_forecast).json()
+    print(response_forecast)
 
-    print(response_current)
-
-    city = response_current['name']
+    city = data['name']
     print(city)
 
-    temp = response_current['main']['temp']
-    temp = round((temp * 1.8) - 459.67)  # convert k to f
+    temp = round(response_forecast['current']['temp'])
     print(temp)
 
-    weather = response_current['weather'][0]['description']
+    weather = response_forecast['current']['weather'][0]['description']
     print(weather)
 
-    icon = response_current['weather'][0]['icon']
+    icon = response_forecast['current']['weather'][0]['icon']
+    print(icon)
 
-    temp_min = response_current['main']['temp_min']
-    temp_min = round((temp_min * 1.8) - 459.67)
+    temp_min = round(response_forecast['daily'][0]['temp']['min'])
+    print(temp_min)
 
-    temp_max = response_current['main']['temp_max']
-    temp_max = round((temp_max * 1.8) - 459.67)
+    temp_max = round(response_forecast['daily'][0]['temp']['max'])
+    print(temp_max)
 
-    humidity = response_current['main']['humidity']
+    humidity = response_forecast['current']['humidity']
+    print(humidity)
 
-    sunrise = response_current['sys']['sunrise']
-    sunset = response_current['sys']['sunset']
+    sunrise = response_forecast['current']['sunrise']
+    sunset = response_forecast['current']['sunset']
 
     print(datetime.fromtimestamp(sunrise).strftime('%-I:%M %p'))
     print(datetime.fromtimestamp(sunset).strftime('%-I:%M %p'))
 
-    url_forecast = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely&appid={key}'
-
-    response_forecast = requests.get(url_forecast).json()
-    print(response_forecast)
+   
+    
+    
 
    
     return render_template('weather.html')
