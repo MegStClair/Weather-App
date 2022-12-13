@@ -1,9 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 import os
 import requests
-
-import math
 
 from datetime import datetime
 
@@ -17,11 +15,12 @@ def show_weather():
     return render_template('weather.html')
 
 
-@app.route('/search', methods=['POST'])
+@app.route('/search')
 def search_location():
     """Get location input."""
 
-    zipcode = request.form.get('search')
+    zipcode = request.args.get('search')
+    print(zipcode)
     key = os.environ['API_KEY']
 
     url = f'http://api.openweathermap.org/geo/1.0/zip?zip={zipcode}&appid={key}'
@@ -32,67 +31,71 @@ def search_location():
 
     lat = data['lat']
     lon = data['lon']
+    print(lat, lon)
 
-    url_forecast = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&units=imperial&exclude=hourly,minutely&appid={key}'
+    # url_forecast = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&units=imperial&exclude=hourly,minutely&appid={key}'
 
-    response_forecast = requests.get(url_forecast).json()
+    # response_forecast = requests.get(url_forecast).json()
 
-    city = data['name']
-    print(city)
+    # print(response_forecast)
 
-    temp = round(response_forecast['current']['temp'])
-    print(temp)
+    # city = data['name']
+    # print(city)
 
-    weather = response_forecast['current']['weather'][0]['description']
-    print(weather)
+    # temp = round(response_forecast['current']['temp'])
+    # print(temp)
 
-    icon = response_forecast['current']['weather'][0]['icon']
-    print(icon)
+    # weather = response_forecast['current']['weather'][0]['description']
+    # print(weather)
 
-    temp_min = round(response_forecast['daily'][0]['temp']['min'])
-    print(temp_min)
+    # icon = response_forecast['current']['weather'][0]['icon']
+    # print(icon)
 
-    temp_max = round(response_forecast['daily'][0]['temp']['max'])
-    print(temp_max)
+    # temp_min = round(response_forecast['daily'][0]['temp']['min'])
+    # print(temp_min)
 
-    humidity = response_forecast['current']['humidity']
-    print(humidity)
+    # temp_max = round(response_forecast['daily'][0]['temp']['max'])
+    # print(temp_max)
 
-    sunrise = response_forecast['current']['sunrise']
-    sunset = response_forecast['current']['sunset']
+    # humidity = response_forecast['current']['humidity']
+    # print(humidity)
 
-    print(datetime.fromtimestamp(sunrise).strftime('%-I:%M %p'))
-    print(datetime.fromtimestamp(sunset).strftime('%-I:%M %p'))
+    # sunrise = response_forecast['current']['sunrise']
+    # sunset = response_forecast['current']['sunset']
 
-    day_1 = round(response_forecast['daily'][1]['temp']['day'])
-    night_1 = round(response_forecast['daily'][1]['temp']['night'])
-    weather_1 = response_forecast['daily'][1]['weather'][0]['main']
-    icon_1 = response_forecast['daily'][1]['weather'][0]['icon']
+    # print(datetime.fromtimestamp(sunrise).strftime('%-I:%M %p'))
+    # print(datetime.fromtimestamp(sunset).strftime('%-I:%M %p'))
 
-    print(datetime.fromtimestamp(response_forecast['daily'][1]['dt']))
+    # day_1 = round(response_forecast['daily'][1]['temp']['day'])
+    # night_1 = round(response_forecast['daily'][1]['temp']['night'])
+    # weather_1 = response_forecast['daily'][1]['weather'][0]['main']
+    # icon_1 = response_forecast['daily'][1]['weather'][0]['icon']
 
-    day_2 = round(response_forecast['daily'][2]['temp']['day'])
-    night_2 = round(response_forecast['daily'][2]['temp']['night'])
-    weather_2 = response_forecast['daily'][2]['weather'][0]['main']
-    icon_2 = response_forecast['daily'][2]['weather'][0]['icon']
+    # print(datetime.fromtimestamp(response_forecast['daily'][1]['dt']))
 
-    day_3 = round(response_forecast['daily'][3]['temp']['day'])
-    night_3 = round(response_forecast['daily'][3]['temp']['night'])
-    weather_3 = response_forecast['daily'][3]['weather'][0]['main']
-    icon_3 = response_forecast['daily'][3]['weather'][0]['icon']
+    # day_2 = round(response_forecast['daily'][2]['temp']['day'])
+    # night_2 = round(response_forecast['daily'][2]['temp']['night'])
+    # weather_2 = response_forecast['daily'][2]['weather'][0]['main']
+    # icon_2 = response_forecast['daily'][2]['weather'][0]['icon']
 
-    day_4 = round(response_forecast['daily'][4]['temp']['day'])
-    night_4 = round(response_forecast['daily'][4]['temp']['night'])
-    weather_4 = response_forecast['daily'][4]['weather'][0]['main']
-    icon_4 = response_forecast['daily'][4]['weather'][0]['icon']
+    # day_3 = round(response_forecast['daily'][3]['temp']['day'])
+    # night_3 = round(response_forecast['daily'][3]['temp']['night'])
+    # weather_3 = response_forecast['daily'][3]['weather'][0]['main']
+    # icon_3 = response_forecast['daily'][3]['weather'][0]['icon']
 
-    print('*******FORECAST*******')
-    print(day_1)
-    print(night_1)
-    print(weather_1)
-    print(icon_1)
+    # day_4 = round(response_forecast['daily'][4]['temp']['day'])
+    # night_4 = round(response_forecast['daily'][4]['temp']['night'])
+    # weather_4 = response_forecast['daily'][4]['weather'][0]['main']
+    # icon_4 = response_forecast['daily'][4]['weather'][0]['icon']
 
-    return render_template('weather.html')
+    # print('*******FORECAST*******')
+    # print(day_1)
+    # print(night_1)
+    # print(weather_1)
+    # print(icon_1)
+
+    # return render_template('weather.html')
+    return jsonify(data) 
 
 
 if __name__ == '__main__':

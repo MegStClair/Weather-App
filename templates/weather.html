@@ -4,12 +4,13 @@
 
 {% block body %}
 
-<div id="search">
-    <form action="/search" method="POST">
-        <input type="text" placeholder="Search by zipcode" name="search">
+<div>
+    <form action="/search" class="zipcode-form">
+        <input type="text" id="zipcode" placeholder="Search by zipcode" name="search">
         <button type="submit">Submit</button>
     </form>
 </div>
 
-<script type="text/jsx" src="/static/js/weather.js"></script>
+<script src="/static/js/weather.js"></script>
+
 {% endblock %}
