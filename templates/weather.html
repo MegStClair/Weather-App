@@ -5,12 +5,13 @@
 {% block body %}
 
 <div>
-    <form action="/search" class="zipcode-form">
-        <input type="text" id="zipcode" placeholder="Search by zipcode" name="search">
+    <form action="/weather" class="zipcode-form">
+        <input type="text" id="zipcode" placeholder="Search by zipcode" name="zipcode">
         <button type="submit">Submit</button>
     </form>
 </div>
 
+<div id="result"></div>
 <script src="/static/js/weather.js"></script>
 
 {% endblock %}

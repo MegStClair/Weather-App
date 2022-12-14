@@ -8,19 +8,20 @@ from datetime import datetime
 app = Flask(__name__)
 
 
-@app.route('/weather')
+@app.route('/')
 def show_weather():
     """Show weather homepage."""
 
     return render_template('weather.html')
 
 
-@app.route('/search')
+@app.route('/weather')
 def search_location():
     """Get location input."""
 
-    zipcode = request.args.get('search')
+    zipcode = request.args.get('zipcode')
     print(zipcode)
+    print('*******')
     key = os.environ['API_KEY']
 
     url = f'http://api.openweathermap.org/geo/1.0/zip?zip={zipcode}&appid={key}'
@@ -28,10 +29,10 @@ def search_location():
     response = requests.get(url)
     data = response.json()
     print(data)
-
-    lat = data['lat']
-    lon = data['lon']
-    print(lat, lon)
+    # print('**************************')
+    # lat = data['lat']
+    # lon = data['lon']
+    # print(lat, lon)
 
     # url_forecast = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&units=imperial&exclude=hourly,minutely&appid={key}'
 
@@ -95,7 +96,7 @@ def search_location():
     # print(icon_1)
 
     # return render_template('weather.html')
-    return jsonify(data) 
+    return jsonify(data)
 
 
 if __name__ == '__main__':
