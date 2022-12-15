@@ -13,7 +13,10 @@ weatherData.addEventListener('submit', (evt) => {
     .then(response => response.json())
     .then(result => {
       console.log(result)
-      document.getElementById('result').innerHTML = result['lat'];
+      document.getElementById('result').innerHTML = result['city'];
     })
   console.log('fetched')
 });
+
+
+
