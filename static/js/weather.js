@@ -12,6 +12,7 @@ weatherData.addEventListener('submit', (evt) => {
   fetch(url)
     .then(response => response.json())
     .then(result => {
+      
       document.querySelector('.city').innerHTML = 
         `<h1>${result['0']['city']}</h1>`
 
