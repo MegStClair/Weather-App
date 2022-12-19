@@ -19,18 +19,20 @@ weatherData.addEventListener('submit', (evt) => {
       document.querySelector('.current').innerHTML = 
         `
         <div id="date"><h1>${result['0']['date']}</h1></div>
-        <img id="icon" src='http://openweathermap.org/img/w/${result['0']['icon']}.png'></img></div>
-        <div id="temp">
-          <h1>${result['0']['temp']}&#8457;</h1> 
-          <h3>${result['0']['weather']}</h3>
+        <div class="side-by-side"> 
+          <img id="icon" src='http://openweathermap.org/img/w/${result['0']['icon']}.png'></img></div>
+          <div id="temp">
+            <h1>${result['0']['temp']}&#8457;</h1> 
+            <h3>${result['0']['weather']}</h3>
+          </div>
         </div>
         <div id="temp-details">
-          <div id="temp-left"> 
+          <div class="side-by-side" id="temp-left"> 
             Low: <br>
             High: <br>
             Humidity:
           </div>
-          <div id="temp-right">
+          <div class="side-by-side" id="temp-right">
             ${result['0']['temp_min']}&#8457;<br>
             ${result['0']['temp_max']}&#8457;<br>
             ${result['0']['humidity']}%
@@ -43,14 +45,16 @@ weatherData.addEventListener('submit', (evt) => {
 
       document.querySelector('#day1').innerHTML = 
         `<div id="date-day_1"><h2>${result['1']['date_1']}</h2></div>
-        <img id="icon-day_1" src='http://openweathermap.org/img/w/${result['1']['icon_1']}.png'></img></div>
-        <div id="temp-day_1"><h3> ${result['1']['weather_1']}</h3></div>
+        <div class="weather-details">
+          <img class="side-by-side" id="icon-day_1" src='http://openweathermap.org/img/w/${result['1']['icon_1']}.png'></img>
+          <div class="side-by-side" id="temp-day_1"><h3> ${result['1']['weather_1']}</h3></div>
+        </div>
         <div id="temp-details-day_1">
-            <div id="temp-left-day_1"> 
+            <div class="side-by-side" id="temp-left-day_1"> 
               Day: <br>
               Night:
             </div>
-            <div id="temp-right-day_1">
+            <div class="side-by-side" id="temp-right-day_1">
               ${result['1']['day_1']}&#8457;<br>
               ${result['1']['night_1']}&#8457;
             </div>
@@ -58,53 +62,56 @@ weatherData.addEventListener('submit', (evt) => {
 
       document.querySelector('#day2').innerHTML =
         `<div id="date-day_2"><h2>${result['1']['date_2']}</h2></div>
-          <img id="icon-day_2" src='http://openweathermap.org/img/w/${result['1']['icon_2']}.png'></img></div>
-          <div id="temp-day_2"><h3> ${result['1']['weather_2']}</h3></div>
-          <div id="temp-details-day_2">
-              <div id="temp-left-day_2"> 
+          <div class="weather-details">
+            <img class="side-by-side" id="icon-day_2" src='http://openweathermap.org/img/w/${result['1']['icon_2']}.png'></img>
+            <div class="side-by-side" id="temp-day_2"><h3> ${result['1']['weather_2']}</h3></div>
+          </div>
+            <div id="temp-details-day_2">
+              <div class="side-by-side" id="temp-left-day_2"> 
                 Day: <br>
                 Night:
               </div>
-              <div id="temp-right-day_2">
+              <div class="side-by-side" id="temp-right-day_2">
                 ${result['1']['day_2']}&#8457;<br>
                 ${result['1']['night_2']}&#8457;
               </div>
-          </div>
-        </div>`
+          </div>`
       
       document.querySelector('#day3').innerHTML =
         `<div id="day_3">
           <div id="date-day_3"><h2>${result['1']['date_3']}</h2></div>
-          <img id="icon-day_3" src='http://openweathermap.org/img/w/${result['1']['icon_3']}.png'></img></div>
-          <div id="temp-day_3"><h3> ${result['1']['weather_3']}</h3></div>
+          <div class="weather-details">
+            <img class="side-by-side" id="icon-day_3" src='http://openweathermap.org/img/w/${result['1']['icon_3']}.png'></img>
+            <div class="side-by-side" id="temp-day_3"><h3> ${result['1']['weather_3']}</h3></div>
+          </div>
           <div id="temp-details-day_3">
-              <div id="temp-left-day_3"> 
+              <div class="side-by-side" id="temp-left-day_3"> 
                 Day: <br>
                 Night:
               </div>
-              <div id="temp-right-day_3">
+              <div class="side-by-side" id="temp-right-day_3">
                 ${result['1']['day_3']}&#8457;<br>
                 ${result['1']['night_3']}&#8457;
               </div>
-          </div>
-        </div>`
+          </div>`
 
       document.querySelector('#day4').innerHTML =
         `<div id="day_4">
           <div id="date-day_4"><h2>${result['1']['date_4']}</h2></div>
-          <img id="icon-day_4" src='http://openweathermap.org/img/w/${result['1']['icon_4']}.png'></img></div>
-          <div id="temp-day_4"><h3> ${result['1']['weather_4']}</h3></div>
+          <div class="weather-details">
+            <img class="side-by-side" id="icon-day_4" src='http://openweathermap.org/img/w/${result['1']['icon_4']}.png'></img>
+            <div class="side-by-side" id="temp-day_4"><h3> ${result['1']['weather_4']}</h3></div>
+          </div>
           <div id="temp-details-day_4">
-              <div id="temp-left-day_4"> 
+              <div class="side-by-side" id="temp-left-day_4"> 
                 Day: <br>
                 Night:
               </div>
-              <div id="temp-right-day_4">
+              <div class="side-by-side" id="temp-right-day_4">
                 ${result['1']['day_4']}&#8457;<br>
                 ${result['1']['night_4']}&#8457;
               </div>
-          </div>
-        </div>`
+          </div>`
         ;
     })
 });

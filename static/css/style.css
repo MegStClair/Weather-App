@@ -12,7 +12,7 @@ p {
 
 #container {
     margin: 0 auto;
-    width: 820px;
+    width: 840px;
 }
 
 #header-container {
@@ -37,6 +37,7 @@ p {
     width: 400px;
     float: left;
     margin: 0 auto;
+    text-align: center;
 }
 
 .current {
@@ -44,19 +45,53 @@ p {
     border-radius: 10px;
     border: 2px solid #ebe048;
     margin: 5px;
+    padding: 25px;
 }
 
+
 #forecast-container {
-    width: 400px;
-    float: right;
+    width: 420px;
     background: #acabac;
     border-radius: 10px;
     border: 2px solid #b81feb;
     margin: 5px;
+    float: right;
+    text-align: center;
 }
 
+.forecast {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    padding: 20px;
+}
+/* 
 .forecast-days {
-    width: 50%;
+    width: 35%;
     float: left;
+    padding: 20px 30px;
+ } */
 
+.side-by-side {
+    width: 40%;
+    float: left;
+}
+
+
+#icon-day_1, #icon-day_2, #icon-day_3, #icon-day_4 {
+    height: 45px;
+    width: 45px;
+}
+
+#temp-left-day_1, #temp-left-day_2, #temp-left-day_3, #temp-left-day_4 {
+    text-align: left;
+    margin-left: 20px;
+}
+
+#temp-right-day_1, #temp-right-day_2, #temp-right-day_3, #temp-right-day_4 {
+    text-align: right;
+}
+
+.weather-details {
+    display: inline-block;
 }
