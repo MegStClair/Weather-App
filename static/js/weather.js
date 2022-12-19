@@ -12,13 +12,12 @@ weatherData.addEventListener('submit', (evt) => {
   fetch(url)
     .then(response => response.json())
     .then(result => {
-      console.log(result[0]['city'])
       document.querySelector('.city').innerHTML = 
         `<h1>${result['0']['city']}</h1>`
       document.querySelector('.current').innerHTML = 
         `
         <div id="date"><h1>${result['0']['date']}</h1></div>
-        <img id="icon" src='http://openweathermap.org/img/w/${result['0']['icon']}.png'></img>
+        <img id="icon" src='http://openweathermap.org/img/w/${result['0']['icon']}.png'></img></div>
         <div id="temp">
           <h1>${result['0']['temp']}&#8457;</h1> 
           <h3>${result['0']['weather']}</h3>
@@ -40,7 +39,22 @@ weatherData.addEventListener('submit', (evt) => {
           ${result['0']['sunset']}
           </div>
         `
+      document.querySelector('.forecast').innerHTML = 
+      `
+      <div id="date_1"><h3>${result['1']['date_1']}</div>
+      <img id="icon-day_1" src='http://openweathermap.org/img/w/${result['1']['icon_1']}.png'></img></div>
+      <div id="temp-day_1"><h3> ${result['1']['weather_1']}</h3></div>
+      <div id="temp-details-day_1">
+          <div id="temp-left-day_1"> 
+            Day: <br>
+            Night:
+          </div>
+          <div id="temp-right-day_1">
+            ${result['1']['day_1']}&#8457;<br>
+            ${result['1']['night_1']}&#8457;
+          </div>
+      </div>
+      `
         ;
     })
-  console.log('fetched')
 });
