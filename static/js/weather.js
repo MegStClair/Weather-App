@@ -41,7 +41,7 @@ weatherData.addEventListener('submit', (evt) => {
         `
       document.querySelector('.forecast').innerHTML = 
       `
-      <div id="date_1"><h3>${result['1']['date_1']}</div>
+      <div id="date-day_1"><h3>${result['1']['date_1']}</div>
       <img id="icon-day_1" src='http://openweathermap.org/img/w/${result['1']['icon_1']}.png'></img></div>
       <div id="temp-day_1"><h3> ${result['1']['weather_1']}</h3></div>
       <div id="temp-details-day_1">
@@ -52,6 +52,48 @@ weatherData.addEventListener('submit', (evt) => {
           <div id="temp-right-day_1">
             ${result['1']['day_1']}&#8457;<br>
             ${result['1']['night_1']}&#8457;
+          </div>
+      </div>
+
+      <div id="date-day_2"><h3>${result['1']['date_2']}</div>
+      <img id="icon-day_2" src='http://openweathermap.org/img/w/${result['1']['icon_2']}.png'></img></div>
+      <div id="temp-day_2"><h3> ${result['1']['weather_2']}</h3></div>
+      <div id="temp-details-day_2">
+          <div id="temp-left-day_2"> 
+            Day: <br>
+            Night:
+          </div>
+          <div id="temp-right-day_2">
+            ${result['1']['day_2']}&#8457;<br>
+            ${result['1']['night_2']}&#8457;
+          </div>
+      </div>
+
+      <div id="date-day_3"><h3>${result['1']['date_3']}</div>
+      <img id="icon-day_3" src='http://openweathermap.org/img/w/${result['1']['icon_3']}.png'></img></div>
+      <div id="temp-day_3"><h3> ${result['1']['weather_3']}</h3></div>
+      <div id="temp-details-day_3">
+          <div id="temp-left-day_3"> 
+            Day: <br>
+            Night:
+          </div>
+          <div id="temp-right-day_3">
+            ${result['1']['day_3']}&#8457;<br>
+            ${result['1']['night_3']}&#8457;
+          </div>
+      </div>
+
+      <div id="date-day_4"><h3>${result['1']['date_4']}</div>
+      <img id="icon-day_4" src='http://openweathermap.org/img/w/${result['1']['icon_4']}.png'></img></div>
+      <div id="temp-day_4"><h3> ${result['1']['weather_4']}</h3></div>
+      <div id="temp-details-day_4">
+          <div id="temp-left-day_4"> 
+            Day: <br>
+            Night:
+          </div>
+          <div id="temp-right-day_4">
+            ${result['1']['day_4']}&#8457;<br>
+            ${result['1']['night_4']}&#8457;
           </div>
       </div>
       `
