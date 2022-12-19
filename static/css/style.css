@@ -1,0 +1,62 @@
+
+body {
+    font-family: Verdana;
+    font-size: 13px;
+    color:#333
+}
+
+
+p {
+    padding: 10px;
+}
+
+#container {
+    margin: 0 auto;
+    width: 820px;
+}
+
+#header-container {
+    width: 800px;
+    float: center;
+    margin: 0 auto;
+}
+
+#header {
+    height: 75px;
+    background: #373635;
+    border-radius: 10px;
+    border: 10px solid #eb521f;
+    margin: 5px;
+}
+
+.city {
+    text-align: center;
+}
+
+#current-container {
+    width: 400px;
+    float: left;
+    margin: 0 auto;
+}
+
+.current {
+    background: #71716b;
+    border-radius: 10px;
+    border: 2px solid #ebe048;
+    margin: 5px;
+}
+
+#forecast-container {
+    width: 400px;
+    float: right;
+    background: #acabac;
+    border-radius: 10px;
+    border: 2px solid #b81feb;
+    margin: 5px;
+}
+
+.forecast-days {
+    width: 50%;
+    float: left;
+
+}

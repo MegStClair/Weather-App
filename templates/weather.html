@@ -4,17 +4,42 @@
 
 {% block body %}
 
-<div>
-    <form action="/weather" class="zipcode-form">
-        <input type="text" id="zipcode" placeholder="Search by zipcode" name="zipcode">
-        <button type="submit">Submit</button>
-    </form>
+<div id="container">
+    <div id="header-container"> 
+        <div id="header">
+            <form action="/weather" class="zipcode-form">
+                <input type="text" id="zipcode" placeholder="Search by zipcode" name="zipcode">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="city"></div>
+
+    <div id="current-container">
+        <div class="current"></div>
+    </div>
+
+
+    <div id="forecast-container">
+        <div class="forecast">
+            <div class="forecast-days">
+                <div id="day1"></div>
+            </div>
+            <div class="forecast-days"></div>
+                <div id="day2"></div>
+            </div>
+            <div class="forecast-days">
+                <div id="day3"></div>
+            </div>
+            <div class="forecast-days"></div>
+                <div id="day4"></div>
+            </div>
+        </div>
+    </div>
+
 </div>
-
-
-<div class="city"></div>
-<div class="current"></div>
-<div class="forecast"></div>
 
 <script src="/static/js/weather.js"></script>
 {% endblock %}
