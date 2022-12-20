@@ -1,5 +1,19 @@
 'use strict';
 
+const showWeather = document.getElementById('button');
+    
+    showWeather.addEventListener('click', () => {
+        const weather = document.getElementById('weather');
+        
+        if (weather.style.display === 'none') {
+            weather.style.display = 'block';
+        } else {
+            weather.style.display = 'none';
+        }
+        });
+
+        
+
 const weatherData = document.querySelector('.zipcode-form');
 
 weatherData.addEventListener('submit', (evt) => {
@@ -19,7 +33,7 @@ weatherData.addEventListener('submit', (evt) => {
       document.querySelector('.current').innerHTML = 
         `
         <div id="date"><h1>${result['0']['date']}</h1></div>
-        <h1>${result['0']['temp']}&#8457;</h1> 
+        <h1>${result['0']['temp']} &#176;F </h1> 
         <div class="weather-details"> 
           <img class="side-by-side" id="icon" src='http://openweathermap.org/img/w/${result['0']['icon']}.png' style="height:45px; width:45px"></img>
           <div class="side-by-side" id="temp"><h3>${result['0']['weather']}</h3></div>
@@ -31,9 +45,9 @@ weatherData.addEventListener('submit', (evt) => {
             Humidity:
           </div>
           <div class="side-by-side" id="temp-right">
-            ${result['0']['temp_min']}&#8457;<br>
-            ${result['0']['temp_max']}&#8457;<br>
-            ${result['0']['humidity']}%
+            ${result['0']['temp_min']} &#176;F<br>
+            ${result['0']['temp_max']} &#176;F<br>
+            ${result['0']['humidity']} %
           </div>
         </div>
         <div class="weather-details">
@@ -57,8 +71,8 @@ weatherData.addEventListener('submit', (evt) => {
               Night:
             </div>
             <div class="side-by-side" id="temp-right-day_1">
-              ${result['1']['day_1']}&#8457;<br>
-              ${result['1']['night_1']}&#8457;
+              ${result['1']['day_1']} &#176;F<br>
+              ${result['1']['night_1']} &#176;F
             </div>
         </div>`
 
@@ -74,8 +88,8 @@ weatherData.addEventListener('submit', (evt) => {
                 Night:
               </div>
               <div class="side-by-side" id="temp-right-day_2">
-                ${result['1']['day_2']}&#8457;<br>
-                ${result['1']['night_2']}&#8457;
+                ${result['1']['day_2']} &#176;F<br>
+                ${result['1']['night_2']} &#176;F
               </div>
           </div>`
       
@@ -92,8 +106,8 @@ weatherData.addEventListener('submit', (evt) => {
                 Night:
               </div>
               <div class="side-by-side" id="temp-right-day_3">
-                ${result['1']['day_3']}&#8457;<br>
-                ${result['1']['night_3']}&#8457;
+                ${result['1']['day_3']} &#176;F<br>
+                ${result['1']['night_3']} &#176;F
               </div>
           </div>`
 
@@ -110,8 +124,8 @@ weatherData.addEventListener('submit', (evt) => {
                 Night:
               </div>
               <div class="side-by-side" id="temp-right-day_4">
-                ${result['1']['day_4']}&#8457;<br>
-                ${result['1']['night_4']}&#8457;
+                ${result['1']['day_4']} &#176;F<br>
+                ${result['1']['night_4']} &#176;F
               </div>
           </div>`
         ;
