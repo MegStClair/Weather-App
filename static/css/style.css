@@ -1,10 +1,10 @@
 
-body {
+html, body {
     font-family: Poppins;
     font-size: 14px;
     font-weight: 500;
     color:#333;
-    /* background-image: linear-gradient(#002244, #6699cc); */
+    background-color:whitesmoke;
 }
 
 
@@ -122,4 +122,8 @@ p {
 #temp-details {
     padding-left: 45px;
     padding-right: 45px;
+}
+
+h1 {
+    margin: 5px 0px;
 }
