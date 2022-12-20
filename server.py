@@ -61,8 +61,6 @@ def search_location():
         "date": date,
     }
 
-    print(current_day)
-
     # Forecast data
     day_1 = round(response_forecast['daily'][1]['temp']['day'])
     night_1 = round(response_forecast['daily'][1]['temp']['night'])
@@ -113,9 +111,26 @@ def search_location():
         "icon_4": icon_4,
         "date_4": date_4,
     }
-    print(forecast)
 
-    return jsonify([current_day, forecast])
+    # ALERT
+    if "alerts" in response_forecast:
+        event = response_forecast['alerts'][0]['event']
+        description = response_forecast['alerts'][0]['description']
+        start = datetime.fromtimestamp(response_forecast['alerts'][0]['start']).strftime('%-m/%-d')
+        end = datetime.fromtimestamp(response_forecast['alerts'][0]['end']).strftime('%-m/%-d') 
+        sender = response_forecast['alerts'][0]['sender_name']
+
+        alert = {
+            "event": event,
+            "description": description,
+            "start": start,
+            "end": end,
+            "sender": sender
+        }
+    else: 
+        alert = None
+
+    return jsonify([current_day, forecast, alert])
 
 
 if __name__ == '__main__':

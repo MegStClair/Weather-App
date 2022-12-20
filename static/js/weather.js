@@ -1,5 +1,6 @@
 'use strict';
 
+
 const showWeather = document.getElementById('button');
     
     showWeather.addEventListener('click', () => {
@@ -12,6 +13,17 @@ const showWeather = document.getElementById('button');
         }
         });
 
+const showAlert = document.getElementById('button');
+    
+    showAlert.addEventListener('click', () => {
+        const alert = document.getElementById('footer-container');
+        
+        if (alert.style.display === 'none') {
+            alert.style.display = 'block';
+        } else {
+            alert.style.display = 'none';
+        }
+        });
         
 
 const weatherData = document.querySelector('.zipcode-form');
@@ -26,7 +38,7 @@ weatherData.addEventListener('submit', (evt) => {
   fetch(url)
     .then(response => response.json())
     .then(result => {
-      
+          
       document.querySelector('.city').innerHTML = 
         `<h1>${result['0']['city']}</h1>`
 
@@ -129,5 +141,12 @@ weatherData.addEventListener('submit', (evt) => {
               </div>
           </div>`
         ;
+
+      document.querySelector('#alert').innerHTML =
+        `<div><h3>ALERT: ${result['2']['event']}</h3>
+        <b>${result['2']['start']} - ${result['2']['end']}: ${result['2']['sender']}</b> <br>
+        ${result['2']['description']}
+        </div>
+        `
     })
 });
