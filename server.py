@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-
-import os
+import creds
 import requests
 
 from datetime import datetime
@@ -21,10 +20,8 @@ def search_location():
 
     zipcode = request.args.get('zipcode')
 
-    key = os.environ['API_KEY']
-
     # API call to  get lat & lon
-    url = f'http://api.openweathermap.org/geo/1.0/zip?zip={zipcode}&appid={key}'
+    url = f'http://api.openweathermap.org/geo/1.0/zip?zip={zipcode}&appid={creds.OPEN_WEATHER_API_KEY}'
 
     response = requests.get(url).json()
     
@@ -32,7 +29,7 @@ def search_location():
     lon = response['lon']
 
     # API call to get 4 day forecast
-    url_forecast = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&units=imperial&exclude=hourly,minutely&appid={key}'
+    url_forecast = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&units=imperial&exclude=hourly,minutely&appid={creds.OPEN_WEATHER_API_KEY}'
 
     response_forecast = requests.get(url_forecast).json()
 
