@@ -11,7 +11,7 @@ app = Flask(__name__)
 def show_weather():
     """Show weather homepage."""
 
-    return render_template('index.html')
+    return render_template('weather.html')
 
 
 @app.route('/weather')
