@@ -1,7 +1,6 @@
 # Weather App
-A weather application that provides current and forecasted weather utilizing user's zipcode.
-
-Live Site: 
+A weather application that provides current and forecasted weather utilizing user's zip code.
+ 
 
 ## Features
 - Utilizes OpenWeather API 
