@@ -18,6 +18,9 @@ A weather application that provides current and forecasted weather utilizing use
 - Flask
 - Jinja2
 
+
+[weather app alert.webm](https://user-images.githubusercontent.com/110854972/210629070-2cad8637-81e3-4b7d-aa81-31777c4c8ba8.webm)
+
 ## Installation
 
 In order to run the app locally on your machine: 
