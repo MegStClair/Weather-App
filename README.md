@@ -1,5 +1,7 @@
 # Weather App
 A weather application that provides current and forecasted weather utilizing user's zip code.
+
+![weatherapp1](https://user-images.githubusercontent.com/110854972/210621861-2fa6c6ce-e4bd-4ec3-8bc5-437941b5af87.gif)
  
 
 ## Features
